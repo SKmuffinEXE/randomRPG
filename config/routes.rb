@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :character_items
+  resources :enemy_items
+  resources :enemy_attacks
+  resources :character_attacks
   resources :enemies
   resources :characters
   resources :attacks

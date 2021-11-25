@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_24_145249) do
+ActiveRecord::Schema.define(version: 2021_11_24_220034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,20 @@ ActiveRecord::Schema.define(version: 2021_11_24_145249) do
     t.integer "manacost"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "enemy_id"
-    t.integer "charater_id"
+  end
+
+  create_table "character_attacks", force: :cascade do |t|
+    t.integer "character_id"
+    t.integer "attack_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "character_items", force: :cascade do |t|
+    t.integer "character_id"
+    t.integer "item_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "characters", force: :cascade do |t|
@@ -45,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_11_24_145249) do
     t.integer "killcount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "enemies", force: :cascade do |t|
@@ -60,6 +73,23 @@ ActiveRecord::Schema.define(version: 2021_11_24_145249) do
     t.integer "level"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "maxhp"
+    t.integer "maxmp"
+    t.integer "xp"
+  end
+
+  create_table "enemy_attacks", force: :cascade do |t|
+    t.integer "enemy_id"
+    t.integer "attack_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "enemy_items", force: :cascade do |t|
+    t.integer "enemy_id"
+    t.integer "item_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "items", force: :cascade do |t|
@@ -69,13 +99,11 @@ ActiveRecord::Schema.define(version: 2021_11_24_145249) do
     t.integer "damage"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "character_id"
-    t.integer "enemy_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
