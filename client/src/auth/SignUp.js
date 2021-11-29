@@ -41,6 +41,15 @@ export default function SignUp(){
         <form>
             Username:
             <input className="inputFieldsSignUp" type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
+            Profile image:
+            <input
+            className="inputFieldsSignUp"
+          type="text"
+          id="imageUrl"
+          value={imageUrl}
+          onChange={(e) => setImageUrl(e.target.value)}
+        />
+        <br/>
              Password: 
             <input className="inputFieldsSignUp" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
           Confirm Password:
@@ -52,18 +61,11 @@ export default function SignUp(){
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
         />
-            Profile image:
-            <input
-            className="inputFieldsSignUp"
-          type="text"
-          id="imageUrl"
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
-        />
-            <button id="signUpButton" onClick={handleSubmit}>Sign Up!</button>
+  <br/> <br/>
+            <button id="signUpButton" onClick={handleSubmit}>SEND IT!</button>
         </form>
     </div>
-    );
+    
 
     </div>
     )

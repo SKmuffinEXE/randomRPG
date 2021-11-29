@@ -5,9 +5,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #282c34;
+  color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.CharacterCard{
+  width: 200px;
+  margin: 10px;
+  padding: 25px;
+  box-shadow:  0 0 20px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.12);
+  border-radius: 35px;
+  /* text-align: center;  */
+  color: black;
+  background: #d7d7d7;
+  font-size:14px;
 }
