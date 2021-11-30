@@ -8,7 +8,7 @@ export default function BattleDesc({character, enemy, text}){
     return (
         <div>
 
-        {text}
+        {text.map((x) => <div> {x} </div>)}
 
         </div>
 
