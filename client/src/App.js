@@ -12,12 +12,14 @@ function App() {
   const [user, setUser] = useState([])
   const [characterList, setCharacterList] = useState([])
   const [activeChar, setActiveChar] = useState([])
+  const [enemy, setEnemy] = useState([])
 
 
   useEffect(() => {
     // refresh()
     test()
     getActiveChar(1)
+    getEnemy()
     //testing get ActiveChar, remove when finished
   }, []);
 
@@ -34,6 +36,7 @@ function App() {
     console.log(activeChar)
   }
 
+  //this just temporary automatically makes user 1
   function test(){
     fetch("/users/1").then((r) => {
       if (r.ok) {
@@ -47,6 +50,24 @@ function App() {
     // console.log("clicked")
     console.log(user)
   }
+
+  function getEnemy(){
+    // const history = useHistory()
+  //  const randoEnemy = enemyList[Math.floor(Math.random() * enemyList.length)]
+
+//    console.log(randoEnemy) 
+   fetch(`/enemies/1`).then((r) => {
+    if (r.ok) {
+      r.json().then((enemy) => {
+          setEnemy(enemy)
+        //   console.log("enemy is:")
+        //   console.log(enemy)
+        // history.pushState('/battle')
+      });
+      
+    }
+  })
+}
   
 
   function refresh(){
@@ -72,10 +93,10 @@ function App() {
       {user.username}
       <Switch>
       <Route exact path="/game/:id"> 
-        <MainRest activeChar = {activeChar}/>
+        <MainRest activeChar = {activeChar} setEnemy = {setEnemy}/>
       </Route>
       <Route exact path="/battle"> 
-        <BattleMain character = {activeChar}/>
+        <BattleMain character = {activeChar} enemy = {enemy}/>
       </Route>
       <Route exact path= "/character">
         <CharacterPage character = {activeChar}/>
