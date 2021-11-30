@@ -52,9 +52,6 @@ function App() {
   }
 
   function getEnemy(){
-    // const history = useHistory()
-  //  const randoEnemy = enemyList[Math.floor(Math.random() * enemyList.length)]
-
 //    console.log(randoEnemy) 
    fetch(`/enemies/1`).then((r) => {
     if (r.ok) {
