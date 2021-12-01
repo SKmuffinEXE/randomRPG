@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import BattleOptions from './BattleOptions';
 import BattleDesc from './BattleDesc';
 
-export default function BattleMain({character, enemy}){
+export default function BattleMain({character, enemy, setActiveChar}){
 
     const [enemyHP, setEnemyHP] = useState(enemy.maxhp)
     const [currentHP, setCurrentHP] = useState(character.health)
@@ -92,7 +92,7 @@ export default function BattleMain({character, enemy}){
                 <div> MP:  {character.mana} / {character.mmana}</div>
             </div>
             <br/> 
-            <BattleOptions character = {character} attack = {attack} battleState = {battleState} winState = {winState}/>
+            <BattleOptions character = {character} attack = {attack} battleState = {battleState} winState = {winState} setActiveChar = {setActiveChar} currentHP = {currentHP}/>
         </div>
     )
 

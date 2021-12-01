@@ -93,7 +93,7 @@ function App() {
         <MainRest activeChar = {activeChar} setEnemy = {setEnemy}/>
       </Route>
       <Route exact path="/battle"> 
-        <BattleMain character = {activeChar} enemy = {enemy}/>
+        <BattleMain character = {activeChar} enemy = {enemy} setActiveChar = {setActiveChar}/>
       </Route>
       <Route exact path= "/character">
         <CharacterPage character = {activeChar}/>
