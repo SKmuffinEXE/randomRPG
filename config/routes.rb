@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :encounters
   resources :character_items
   resources :enemy_items
   resources :enemy_attacks
@@ -10,6 +11,9 @@ Rails.application.routes.draw do
   resources :items
   resources :users
 
+  #item systems
+  patch '/give_item', to: 'items#get_item'
+  patch '/use_item', to: 'characters#use_item'
 
   post '/signup', to: 'users#create'
   get '/me', to: 'users#show'

@@ -7,6 +7,7 @@ import CharacterSelect from './characterSelect/CharacterSelect';
 import CharacterCreator from './characterSelect/CharacterCreate';
 import CharacterPage from './nontBattle/main/CharacterPage';
 import BattleMain from './battle/BattleMain';
+import ItemPage from './nontBattle/ItemPage';
 
 function App() {
   const [user, setUser] = useState([])
@@ -73,7 +74,7 @@ function App() {
         r.json().then((user) => {console.log(user)
           setUser(user)
          
-          console.log(characterList)
+          console.log("test")
         });
         
       }
@@ -94,6 +95,9 @@ function App() {
       </Route>
       <Route exact path="/battle"> 
         <BattleMain character = {activeChar} enemy = {enemy} setActiveChar = {setActiveChar}/>
+      </Route>
+      <Route exact path="/inventory"> 
+        <ItemPage character = {activeChar} setActiveChar = {setActiveChar} refresh={getActiveChar}/>
       </Route>
       <Route exact path= "/character">
         <CharacterPage character = {activeChar}/>

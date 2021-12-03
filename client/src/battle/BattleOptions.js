@@ -3,13 +3,13 @@ import { useHistory } from 'react-router';
 import MainMenu from './menu/MainMenu';
 import Attacks from './menu/Attacks';
 
-export default function BattleOptions({character, attack, battleState, winState, setActiveChar, currentHP}){
+export default function BattleOptions({character, attack, battleState, winState, setActiveChar, currentHP, enemy}){
     const {menuState, setMenuState} = useState("main")
     const history = useHistory();
 
     function RestAgain(){
         if (winState === "You win!") {
-            updateKC()
+            reward()
         }
         else {
             //fetch update health to 1`
@@ -17,16 +17,17 @@ export default function BattleOptions({character, attack, battleState, winState,
         history.push("/game/1")
     }
 
-    function updateKC(){
+    function reward(){
         const kc = character.killcount + 1
-        const updateInfo = {
-            killcountt: kc, 
-            health: character.health}
+        const newGold = character.gold + enemy.gold
+        
+
                     fetch(`/characters/${character.id}}`, {
             method: "PATCH",
             headers: {"Content-Type": "application/json",},
             body: JSON.stringify({killcount: kc, 
-                health: currentHP}),
+                health: currentHP,
+            gold: newGold}),
         })
         .then((r)=> r.json())
         .then((data) => {console.log(data)

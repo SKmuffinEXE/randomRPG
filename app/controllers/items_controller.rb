@@ -15,6 +15,12 @@ def create
     render json: item
 end
 
+def get_item
+    item = Item.find_by(id: params[:item])
+    character = Character.find_by(id: params[:character])
+    item.get_item(character)
+end
+
 private
 
 def item_params

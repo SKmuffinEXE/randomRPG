@@ -53,6 +53,8 @@ export default function MainRest({setEnemy}){
             <NavLink to={`/character`}> Status</NavLink>  */}
 
             <button onClick = {() => {history.push("/character")}}> Status </button>
+
+            <button onClick = {() => {history.push("/inventory")}}> inventory</button>
             
             
         </div>

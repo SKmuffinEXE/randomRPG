@@ -22,6 +22,7 @@ return(
         <h3>Level: {character.level} </h3>
         <h3>{character.health} / {character.mhealth} </h3>
         <h3>Enemies killed: {character.killcount} </h3>
+        <h3> Gold: {character.gold} </h3>
 
         <h3>Stats </h3>
         <h4>Strength:{character.str} </h4>

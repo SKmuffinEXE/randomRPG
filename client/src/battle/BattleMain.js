@@ -20,7 +20,7 @@ export default function BattleMain({character, enemy, setActiveChar}){
         
         if(dmgVal >= enemyHP){
             setEnemyHP(0)
-            setText([`You strike ${enemy.name} for ${dmgVal} damage`, `You defeated ${enemy.name}!`])
+            setText([`You strike ${enemy.name} for ${dmgVal} damage`, `You defeated ${enemy.name}!`, `You've gained ${enemy.gold} gold!`, `You've gained ${enemy.xp} experience!`])
             setWinState("You win!")
             endBattle()
         }
@@ -92,7 +92,7 @@ export default function BattleMain({character, enemy, setActiveChar}){
                 <div> MP:  {character.mana} / {character.mmana}</div>
             </div>
             <br/> 
-            <BattleOptions character = {character} attack = {attack} battleState = {battleState} winState = {winState} setActiveChar = {setActiveChar} currentHP = {currentHP}/>
+            <BattleOptions character = {character} attack = {attack} battleState = {battleState} winState = {winState} setActiveChar = {setActiveChar} currentHP = {currentHP} enemy = {enemy}/>
         </div>
     )
 

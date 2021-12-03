@@ -27,6 +27,13 @@ class CharactersController < ApplicationController
         render json: character
     end
 
+    def use_item
+        character = Character.find_by(id: params[:character])
+        item = Item.find_by(id: params[:item])
+        character.use_item(item)
+        render json: character
+    end
+
     private
 
     def character_params
