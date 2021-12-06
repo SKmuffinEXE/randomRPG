@@ -35,7 +35,7 @@ export default function ItemPage({character, setActiveChar, refresh}){
 
             {cards}
 
-            <button onClick = {() => {history.push("/game/1")}}> Back</button>
+            <button onClick = {() => {history.push(`/game/${character.id}`)}}> Back</button>
 
         </div>
     )

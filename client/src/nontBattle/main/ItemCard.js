@@ -17,7 +17,7 @@ export default function ItemCard({item,character,removeItem, setActiveChar, refr
         }
         else{
             const newHP =character.health + healAmount
-            fetch(`/characters`, {
+            fetch(`/characters/${character.id}`, {
                 method: "PATCH",
                 headers: {"Content-Type": "application/json",},
                 body: JSON.stringify(

@@ -28,6 +28,7 @@ export default function StoreItemCard({item, character, currentGold, setCurrentG
         
         
         if(currentGold >= 25){
+            takeGold()
             setCurrentGold(prev => prev - 25)
             fetch(`/give_item`, {
             method: "PATCH",
@@ -39,7 +40,6 @@ export default function StoreItemCard({item, character, currentGold, setCurrentG
         })
         .then((r)=> r.json())
         .then((data) => {console.log(data)
-            takeGold()
             })
             
             console.log("clicked")
@@ -48,17 +48,19 @@ export default function StoreItemCard({item, character, currentGold, setCurrentG
         else{
             console.log("not enough gold!")
             setMessage("I'm afraid you're lacking the gold for that my friend!")
-            takeGold()
+            // takeGold()
             }
         
     }
 
     function takeGold(){
+
+        let testGold = currentGold - 25
         fetch(`/characters/${character.id}}`, {
             method: "PATCH",
             headers: {"Content-Type": "application/json",},
             body: JSON.stringify(
-            {gold: currentGold}),
+            {gold: testGold}),
         })
         .then((r)=> r.json())
         .then((data) => {console.log(data)

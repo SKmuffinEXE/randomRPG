@@ -36,7 +36,7 @@ export default function CharacterPage({character, getActiveChar}){
 
 
     function restArea() {
-        history.push("/game/1")
+        history.push(`/game/${character.id}`)
     }
 
     function levelUp(){
