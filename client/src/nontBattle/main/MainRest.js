@@ -56,6 +56,7 @@ export default function MainRest({setEnemy}){
 
             <button onClick = {() => {history.push("/inventory")}}> inventory</button>
             
+            <button onClick = {() => {history.push("/store")}}> store</button>
             
         </div>
     )

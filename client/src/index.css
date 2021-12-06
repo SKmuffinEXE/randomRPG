@@ -25,3 +25,21 @@ code {
   background: #d7d7d7;
   font-size:14px;
 }
+
+.itemCard{
+  width: 200px;
+  margin: 10px;
+  padding: 25px;
+  box-shadow:  0 0 20px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.12);
+  border-radius: 35px;
+  /* text-align: center;  */
+  color: black;
+  background: #d7d7d7;
+  font-size:14px;
+}
+
+.itemImage{
+  width: 50px;
+  margin:10px;
+  flex-direction: column;
+}

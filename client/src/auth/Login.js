@@ -6,7 +6,27 @@ export default function Login({setUser, setCharacterList}){
     const [errors, setErrors] = useState([]);
 
     function login(e){
-        e.preventDefault()
+        e.preventDefault();
+
+        fetch("/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, 
+            password}),
+        }).then((r) => {
+          if (r.ok) {
+            r.json().then((user) => {
+            //   setCharacterList(user.player_characters)
+              setUser(user)
+            });
+          } else {
+            r.json().then((err) => {setErrors(err.error)
+            console.log(err.error)
+            });
+          }
+        });
 
     }
 

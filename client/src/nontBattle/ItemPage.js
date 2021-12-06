@@ -26,7 +26,7 @@ export default function ItemPage({character, setActiveChar, refresh}){
 
     const history = useHistory();
 
-    const cards = itemList.map(item => <ItemCard item = {item} character = {character} removeItem ={removeItem} setActiveChar = {setActiveChar} refresh = {refresh}/>)
+    const cards = itemList.map(item => <ItemCard item = {item} character = {character} removeItem ={removeItem} setActiveChar = {setActiveChar} refresh = {refresh} key = {item.name}/>)
 
     return(
 

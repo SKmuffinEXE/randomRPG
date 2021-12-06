@@ -8,18 +8,19 @@ import CharacterCreator from './characterSelect/CharacterCreate';
 import CharacterPage from './nontBattle/main/CharacterPage';
 import BattleMain from './battle/BattleMain';
 import ItemPage from './nontBattle/ItemPage';
+import StorePage from './ItemSTore/Storepage';
 
 function App() {
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState(null)
   const [characterList, setCharacterList] = useState([])
   const [activeChar, setActiveChar] = useState([])
   const [enemy, setEnemy] = useState([])
 
 
   useEffect(() => {
-    // refresh()
-    test()
-    getActiveChar(1)
+    refresh()
+    // test()
+    getActiveChar([])
     getEnemy()
     //testing get ActiveChar, remove when finished
   }, []);
@@ -35,6 +36,7 @@ function App() {
     })
     console.log("Current Character")
     console.log(activeChar)
+    // test()
   }
 
   //this just temporary automatically makes user 1
@@ -73,14 +75,17 @@ function App() {
       if (r.ok) {
         r.json().then((user) => {console.log(user)
           setUser(user)
-         
-          console.log("test")
+          setCharacterList(user.characters)
+          // console.log("test")
         });
         
       }
     })
     // console.log("clicked")
   }
+
+
+  if (!user) return <LandingPage setUser={setUser} setCharacterList = {setCharacterList} />;
   return (
     <div className="App">
       
@@ -103,11 +108,15 @@ function App() {
         <CharacterPage character = {activeChar}/>
          </Route>
       <Route exact path="/create"> 
-        <CharacterCreator/>
+        <CharacterCreator refresh = {test} userID = {user.id}  setCharacterList = {setCharacterList}/>
       </Route>  
+      <Route exact path = "/store">
+        <StorePage character = {activeChar} setActiveChar = {setActiveChar}/>
+      </Route>
       <Route exact path="/">
-        <CharacterSelect characterList = {characterList} getActiveChar = {getActiveChar}/>
+        <CharacterSelect characterList = {characterList}getActiveChar = {getActiveChar} setUser = {setUser}/>
           </Route>
+          
       <Route path="*">
             <h1>404 not found</h1>
           </Route>

@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
+    skip_before_action :authorize, only: :create
+
     def index
         list = User.all
         render json: list
     end
 
     def show
-        user = findUser
-        render json: user
+        render json: @current_user, serializer: UserDetailsSerializer
     end
 
     def create
