@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router';
 import StoreItemCard from './StoreItemCard';
 
-export default function StorePage({character, setActiveChar}){
+export default function StorePage({character, setActiveChar, refresh}){
 
     const history = useHistory()
     const [itemList, setItemList] = useState([])
@@ -22,7 +22,7 @@ export default function StorePage({character, setActiveChar}){
     }, [])
 
 
-    const displayItems = itemList.map((item) => <StoreItemCard item = {item} character = {character} currentGold={currentGold} setCurrentGold = {setCurrentGold} setMessage = {setMessage} setActiveChar = {setActiveChar}/>)
+    const displayItems = itemList.map((item) => <StoreItemCard item = {item} character = {character} currentGold={currentGold} setCurrentGold = {setCurrentGold} setMessage = {setMessage} setActiveChar = {setActiveChar} refresh = {refresh}/>)
 
     return(
         <div>

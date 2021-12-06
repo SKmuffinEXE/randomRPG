@@ -19,6 +19,7 @@ def get_item
     item = Item.find_by(id: params[:item])
     character = Character.find_by(id: params[:character])
     item.get_item(character)
+    render json: character, serializer: CharacterSerializer
 end
 
 private

@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import MainMenu from './menu/MainMenu';
 import Attacks from './menu/Attacks';
 
-export default function BattleOptions({character, attack, battleState, winState, setActiveChar, currentHP, enemy, setText}){
+export default function BattleOptions({character, attack, battleState, winState, setActiveChar, currentHP, enemy, setText, randomizer}){
     const {menuState, setMenuState} = useState("main")
     const {level, setLevel} = useState(character.level)
     const history = useHistory();
@@ -15,7 +15,8 @@ export default function BattleOptions({character, attack, battleState, winState,
         else {
             //fetch update health to 1`
         }
-        history.push("/game/1")
+        randomizer()
+        history.push(`/game/${character.id}`)
     }
 
   
@@ -26,8 +27,6 @@ export default function BattleOptions({character, attack, battleState, winState,
         let xp = character.exp + enemy.xp
         const newLevel = character.level + 1
         const newPoints = character.points + 5
-        console.log("new xp is")
-        console.log(xp)
         
         if (xp >= 100) {
             xp = xp - 100
@@ -67,7 +66,7 @@ export default function BattleOptions({character, attack, battleState, winState,
         }
 
                     
-    
+       
         }
 
         // fetch(`/characters/${character.id}`), {

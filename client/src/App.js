@@ -20,10 +20,19 @@ function App() {
   useEffect(() => {
     refresh()
     // test()
+    randomizer()
     getActiveChar([])
-    getEnemy()
+    
+    
     //testing get ActiveChar, remove when finished
   }, []);
+
+  function randomizer(){
+    const x = Math.floor(Math.random() * 4) + 1;
+    console.log(x)
+    getEnemy(x)
+   
+  }
 
   function getActiveChar(x){
     fetch(`/characters/${x}`).then((r) => {
@@ -34,8 +43,8 @@ function App() {
         
       }
     })
-    console.log("Current Character")
-    console.log(activeChar)
+    // console.log("Current Character")
+    // console.log(activeChar)
     // test()
   }
 
@@ -54,9 +63,9 @@ function App() {
     console.log(user)
   }
 
-  function getEnemy(){
+  function getEnemy(x){
 //    console.log(randoEnemy) 
-   fetch(`/enemies/1`).then((r) => {
+   fetch(`/enemies/${x}`).then((r) => {
     if (r.ok) {
       r.json().then((enemy) => {
           setEnemy(enemy)
@@ -76,7 +85,8 @@ function App() {
         r.json().then((user) => {console.log(user)
           setUser(user)
           setCharacterList(user.characters)
-          // console.log("test")
+          console.log("username:")
+          console.log(user.username)
         });
         
       }
@@ -92,14 +102,14 @@ function App() {
         {/* <LandingPage setUser={setUser} setCharacterList = {setCharacterList}/> */}
 
       {/* </header> */}
-      {/* Hello! */}
+      Hello!
       {user.username}
       <Switch>
       <Route exact path="/game/:id"> 
         <MainRest activeChar = {activeChar} setEnemy = {setEnemy}/>
       </Route>
       <Route exact path="/battle"> 
-        <BattleMain character = {activeChar} enemy = {enemy} setActiveChar = {setActiveChar}/>
+        <BattleMain character = {activeChar} enemy = {enemy} setActiveChar = {setActiveChar} randomizer = {randomizer}/>
       </Route>
       <Route exact path="/inventory"> 
         <ItemPage character = {activeChar} setActiveChar = {setActiveChar} refresh={getActiveChar}/>
@@ -111,7 +121,7 @@ function App() {
         <CharacterCreator refresh = {test} userID = {user.id}  setCharacterList = {setCharacterList}/>
       </Route>  
       <Route exact path = "/store">
-        <StorePage character = {activeChar} setActiveChar = {setActiveChar}/>
+        <StorePage character = {activeChar} setActiveChar = {setActiveChar} refresh = {getActiveChar}/>
       </Route>
       <Route exact path="/">
         <CharacterSelect characterList = {characterList}getActiveChar = {getActiveChar} setUser = {setUser}/>

@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import BattleOptions from './BattleOptions';
 import BattleDesc from './BattleDesc';
 
-export default function BattleMain({character, enemy, setActiveChar}){
+export default function BattleMain({character, enemy, setActiveChar, randomizer}){
 
     const [enemyHP, setEnemyHP] = useState(enemy.maxhp)
     const [currentHP, setCurrentHP] = useState(character.health)
@@ -21,6 +21,7 @@ export default function BattleMain({character, enemy, setActiveChar}){
         if(dmgVal >= enemyHP){
             setEnemyHP(0)
             setText([`You strike ${enemy.name} for ${dmgVal} damage`, `You defeated ${enemy.name}!`, `You've gained ${enemy.gold} gold!`, `You've gained ${enemy.xp} experience!`])
+            // setRandoEnemy()
             setWinState("You win!")
             checkLevelUp()
             endBattle()
@@ -40,6 +41,7 @@ export default function BattleMain({character, enemy, setActiveChar}){
 
     function enemyAttack(){
         const dmgVal = damage(enemy.str, character.con)
+        setText(prev => [...prev, `${enemy.name} attacks you for ${dmgVal} damage`])
         setCurrentHP(prev => prev - dmgVal)
         if(currentHP < 0){
             setWinState("You lose")
@@ -97,7 +99,7 @@ export default function BattleMain({character, enemy, setActiveChar}){
                 <div> MP:  {character.mana} / {character.mmana}</div>
             </div>
             <br/> 
-            <BattleOptions character = {character} attack = {attack} battleState = {battleState} winState = {winState} setActiveChar = {setActiveChar} currentHP = {currentHP} enemy = {enemy} setText ={setText}/>
+            <BattleOptions character = {character} attack = {attack} battleState = {battleState} winState = {winState} setActiveChar = {setActiveChar} currentHP = {currentHP} enemy = {enemy} setText ={setText} randomizer ={randomizer}/>
         </div>
     )
 

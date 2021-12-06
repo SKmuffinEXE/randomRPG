@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import potion from './potion.png'
 
 
-export default function StoreItemCard({item, character, currentGold, setCurrentGold, setMessage, setActiveChar}){
+export default function StoreItemCard({item, character, currentGold, setCurrentGold, setMessage, setActiveChar, refresh}){
 
     const [itemDesc, setItemDesc] = useState([])
 
@@ -40,6 +40,7 @@ export default function StoreItemCard({item, character, currentGold, setCurrentG
         })
         .then((r)=> r.json())
         .then((data) => {console.log(data)
+            
             })
             
             console.log("clicked")
@@ -64,7 +65,10 @@ export default function StoreItemCard({item, character, currentGold, setCurrentG
         })
         .then((r)=> r.json())
         .then((data) => {console.log(data)
-            setActiveChar(data)
+            refresh(character.id)
+            console.log(data)
+            console.log(data.id)
+            // setActiveChar(data.id)
             })
     }
 
