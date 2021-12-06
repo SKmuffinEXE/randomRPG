@@ -2,7 +2,7 @@ import {useState} from 'react'
 import { useHistory } from "react-router"
 import CharacterSelect from "../../characterSelect/CharacterSelect";
 
-export default function CharacterPage({character}){
+export default function CharacterPage({character, getActiveChar}){
     const [leveling, setLeveling] = useState(false)
     const history = useHistory();
     const [strength, setStrength] = useState(character.str)
@@ -40,7 +40,32 @@ export default function CharacterPage({character}){
     }
 
     function levelUp(){
-        setLeveling(!leveling)
+        fetch(`/characters/${character.id}}`, {
+            method: "PATCH",
+            headers: {"Content-Type": "application/json",},
+            body: JSON.stringify({
+            str: strength,
+            int: Inteligence,
+            dex: Dexterity,
+            speed: Speed,
+            con: Constitution,
+            wis: Wisdom,
+            points: Points
+        }),
+        })
+        .then((r)=> r.json())
+        .then((data) => {console.log(data)
+            getActiveChar(data)
+
+            setinitCon(Constitution)
+            setinitDex(Dexterity)
+            setinitint(Inteligence)
+            setinitstr(strength)
+            setinitWis(Wisdom)
+            setinitspd(Speed)
+            })
+
+            // fetch
 
     }
     

@@ -105,7 +105,7 @@ function App() {
         <ItemPage character = {activeChar} setActiveChar = {setActiveChar} refresh={getActiveChar}/>
       </Route>
       <Route exact path= "/character">
-        <CharacterPage character = {activeChar}/>
+        <CharacterPage character = {activeChar} getActiveChar = {getActiveChar}/>
          </Route>
       <Route exact path="/create"> 
         <CharacterCreator refresh = {test} userID = {user.id}  setCharacterList = {setCharacterList}/>
