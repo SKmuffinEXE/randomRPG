@@ -37,7 +37,7 @@ class CharactersController < ApplicationController
     private
 
     def character_params
-        params.permit(:name, :health, :mhealth, :mana, :mmana, :str, :int, :dex, :speed, :con, :wis, :gold, :level, :points, :killcount, :user_id)
+        params.permit(:name, :health, :mhealth, :mana, :mmana, :str, :int, :dex, :speed, :con, :wis, :gold, :level, :exp, :points, :killcount, :user_id)
     end
 
     def findCharacter

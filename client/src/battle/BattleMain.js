@@ -22,6 +22,7 @@ export default function BattleMain({character, enemy, setActiveChar}){
             setEnemyHP(0)
             setText([`You strike ${enemy.name} for ${dmgVal} damage`, `You defeated ${enemy.name}!`, `You've gained ${enemy.gold} gold!`, `You've gained ${enemy.xp} experience!`])
             setWinState("You win!")
+            checkLevelUp()
             endBattle()
         }
         else{
@@ -31,7 +32,11 @@ export default function BattleMain({character, enemy, setActiveChar}){
         }
     }
 
-    
+    function checkLevelUp(){
+        if(character.exp >= 90){
+            setText(prev => [...prev, "You leveled up!"])
+        }
+    }
 
     function enemyAttack(){
         const dmgVal = damage(enemy.str, character.con)
@@ -92,7 +97,7 @@ export default function BattleMain({character, enemy, setActiveChar}){
                 <div> MP:  {character.mana} / {character.mmana}</div>
             </div>
             <br/> 
-            <BattleOptions character = {character} attack = {attack} battleState = {battleState} winState = {winState} setActiveChar = {setActiveChar} currentHP = {currentHP} enemy = {enemy}/>
+            <BattleOptions character = {character} attack = {attack} battleState = {battleState} winState = {winState} setActiveChar = {setActiveChar} currentHP = {currentHP} enemy = {enemy} setText ={setText}/>
         </div>
     )
 

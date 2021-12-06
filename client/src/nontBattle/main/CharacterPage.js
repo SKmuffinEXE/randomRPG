@@ -74,7 +74,8 @@ return(
     <div>
        <h1> {character.name} </h1>
         <h3>Level: {character.level} </h3>
-        <h3>{character.health} / {character.mhealth} </h3>
+        <h3> Experience: {character.exp} / 100 </h3>
+        <h3>Health: {character.health} / {character.mhealth} </h3>
         <h3>Enemies killed: {character.killcount} </h3>
         <h3> Gold: {character.gold} </h3>
 

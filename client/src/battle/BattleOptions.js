@@ -3,8 +3,9 @@ import { useHistory } from 'react-router';
 import MainMenu from './menu/MainMenu';
 import Attacks from './menu/Attacks';
 
-export default function BattleOptions({character, attack, battleState, winState, setActiveChar, currentHP, enemy}){
+export default function BattleOptions({character, attack, battleState, winState, setActiveChar, currentHP, enemy, setText}){
     const {menuState, setMenuState} = useState("main")
+    const {level, setLevel} = useState(character.level)
     const history = useHistory();
 
     function RestAgain(){
@@ -17,23 +18,55 @@ export default function BattleOptions({character, attack, battleState, winState,
         history.push("/game/1")
     }
 
+  
+
     function reward(){
         const kc = character.killcount + 1
         const newGold = character.gold + enemy.gold
+        let xp = character.exp + enemy.xp
+        const newLevel = character.level + 1
+        const newPoints = character.points + 5
+        console.log("new xp is")
+        console.log(xp)
         
-
-                    fetch(`/characters/${character.id}}`, {
-            method: "PATCH",
-            headers: {"Content-Type": "application/json",},
-            body: JSON.stringify({killcount: kc, 
-                health: currentHP,
-            gold: newGold}),
-        })
-        .then((r)=> r.json())
-        .then((data) => {console.log(data)
-            setActiveChar(data)
+        if (xp >= 100) {
+            xp = xp - 100
+            
+            fetch(`/characters/${character.id}}`, {
+                method: "PATCH",
+                headers: {"Content-Type": "application/json",},
+                body: JSON.stringify({killcount: kc, 
+                    health: currentHP,
+                gold: newGold,
+                level: newLevel,
+                exp: xp,
+                points: newPoints}),
             })
-        console.log(kc)
+            .then((r)=> r.json())
+            .then((data) => {console.log(data)
+                setActiveChar(data)
+                })
+            // console.log(kc)
+
+        }
+        else {
+            fetch(`/characters/${character.id}}`, {
+                method: "PATCH",
+                headers: {"Content-Type": "application/json",},
+                body: JSON.stringify({killcount: kc, 
+                    health: currentHP,
+                    exp: xp,
+                gold: newGold
+                }),
+            })
+            .then((r)=> r.json())
+            .then((data) => {console.log(data)
+                setActiveChar(data)
+                })
+            // console.log(kc)
+        }
+
+                    
     
         }
 
