@@ -1,6 +1,12 @@
 import {NavLink} from 'react-router-dom';
 
-export default function CharacterCard({character, getActiveChar}){
+export default function CharacterCard({character, getActiveChar, setCharacterChosen}){
+
+    function handleClick() {
+        getActiveChar(character.id) 
+        setCharacterChosen(prev => !prev)
+    }
+    
 
     return(
 
@@ -10,7 +16,7 @@ export default function CharacterCard({character, getActiveChar}){
             <h3>level: {character.level} </h3>
             Gold: {character.gold}<br/>
             KC: {character.killcount}<br/>
-            <h3><NavLink to={`/game/${character.id}`} onClick= {() =>getActiveChar(character.id)}>Select</NavLink> </h3>
+            <h3><NavLink to={`/game/${character.id}`} onClick= {() =>handleClick()}>Select</NavLink> </h3>
 
         </div>
     )

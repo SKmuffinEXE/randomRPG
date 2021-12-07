@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import BattleOptions from './BattleOptions';
 import BattleDesc from './BattleDesc';
 
-export default function BattleMain({character, enemy, setActiveChar, randomizer}){
+export default function BattleMain({character, enemy, setActiveChar, randomizer, setDisplayUser}){
 
     const [enemyHP, setEnemyHP] = useState(enemy.maxhp)
     const [currentHP, setCurrentHP] = useState(character.health)
@@ -20,7 +20,7 @@ export default function BattleMain({character, enemy, setActiveChar, randomizer}
         
         if(dmgVal >= enemyHP){
             setEnemyHP(0)
-            setText([`You strike ${enemy.name} for ${dmgVal} damage`, `You defeated ${enemy.name}!`, `You've gained ${enemy.gold} gold!`, `You've gained ${enemy.xp} experience!`])
+            setText([`You strike ${enemy.name} for ${dmgVal} damage`, `${enemy.name} falls before your feet.`, `You defeated ${enemy.name}!`, `You've gained ${enemy.gold} gold!`, `You've gained ${enemy.xp} experience!`])
             // setRandoEnemy()
             setWinState("You win!")
             checkLevelUp()
@@ -83,10 +83,10 @@ export default function BattleMain({character, enemy, setActiveChar, randomizer}
     return(
 
         <div>
-            <div> enemy area 
-                {enemy.name}
-                HP:{enemyHP} / {enemy.maxhp}
-                </div> <br/> <br/> <br/>
+            <center><div>
+                {enemy.name} <br/>
+                HP: {enemyHP} / {enemy.maxhp}
+                </div> </center> <br/> <br/> <br/>
 
             <div> 
                 {/* battle text */}
@@ -99,7 +99,7 @@ export default function BattleMain({character, enemy, setActiveChar, randomizer}
                 <div> MP:  {character.mana} / {character.mmana}</div>
             </div>
             <br/> 
-            <BattleOptions character = {character} attack = {attack} battleState = {battleState} winState = {winState} setActiveChar = {setActiveChar} currentHP = {currentHP} enemy = {enemy} setText ={setText} randomizer ={randomizer}/>
+            <BattleOptions character = {character} attack = {attack} battleState = {battleState} winState = {winState} setActiveChar = {setActiveChar} currentHP = {currentHP} enemy = {enemy} setText ={setText} randomizer ={randomizer} setDisplayUser ={setDisplayUser}/>
         </div>
     )
 

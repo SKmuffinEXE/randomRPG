@@ -71,18 +71,25 @@ export default function CharacterPage({character, getActiveChar}){
     
 return(
 
-    <div>
-       <h1> {character.name} </h1>
-        <h3>Level: {character.level} </h3>
+    <div ID = "characterPageBG">
+        <div >
+        <h1>&nbsp; &nbsp; {character.name} </h1> 
+       <center> 
+        <div ID = "characterPageInfo">
+        <div>
+        <center>
+        <h3>Level: {character.level} </h3> </center>
         <h3> Experience: {character.exp} / 100 </h3>
-        <h3>Health: {character.health} / {character.mhealth} </h3>
+        <h3 id = "HPText">Health: {character.health} / {character.mhealth} </h3>
         <h3>Enemies killed: {character.killcount} </h3>
         <h3> Gold: {character.gold} </h3>
-
+        </div>
+        <div>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div>
+    <div ID = "stats">
         <h3>Stats </h3>
         <h4>
 
-        Strength:
+        Strength:  
         <button className="statButtons" onClick ={(e) => PointBuy(e, setStrength, initstr , strength,  "plus")}> ↑ </button> 
             {strength} 
             <button className="statButtons" onClick ={(e) => PointBuy(e, setStrength, initstr, strength, "minus")}> ↓</button>
@@ -128,9 +135,17 @@ return(
             </h4>
 
         <h4> Points left: {Points} </h4>
-
-        <button onClick = {() => restArea()}> Back </button>
-        <button onClick = {() => levelUp()}> Buy Stats </button>
+        </div>
+        
+        </div>
+        </center>
+    </div>
+    <center> 
+    <div ID>
+    <button className = "custButton" onClick = {() => restArea()}> Back </button>
+        <button className = "custButton" onClick = {() => levelUp()}> Buy Stats </button>
+        </div>
+        </center>
     </div>
 )
 

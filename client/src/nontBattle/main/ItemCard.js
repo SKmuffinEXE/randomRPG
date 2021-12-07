@@ -57,8 +57,8 @@ export default function ItemCard({item,character,removeItem, setActiveChar, refr
 
     return(
         <div>
-            {item.name}
-            <button onClick = {() => itemUse()}>Use</button>
+            &nbsp;&nbsp;{item.name} &nbsp; &nbsp;
+            <button className = "useButton" onClick = {() => itemUse()}>Use</button>
         </div>
     )
     

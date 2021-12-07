@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import MainMenu from './menu/MainMenu';
 import Attacks from './menu/Attacks';
 
-export default function BattleOptions({character, attack, battleState, winState, setActiveChar, currentHP, enemy, setText, randomizer}){
+export default function BattleOptions({character, attack, battleState, winState, setActiveChar, currentHP, enemy, setText, randomizer, setDisplayUser}){
     const {menuState, setMenuState} = useState("main")
     const {level, setLevel} = useState(character.level)
     const history = useHistory();
@@ -16,6 +16,7 @@ export default function BattleOptions({character, attack, battleState, winState,
             //fetch update health to 1`
         }
         randomizer()
+        setDisplayUser(prev => !prev)
         history.push(`/game/${character.id}`)
     }
 
@@ -89,7 +90,8 @@ export default function BattleOptions({character, attack, battleState, winState,
     return(
 
         <div> Menu <br/>
- <button onClick = {() => attack()}> Attack</button> <button>Items</button>
+ <button onClick = {() => attack()}> Attack</button> 
+ {/* <button>Items</button> */}
        {/* {currentMenu} */}
        {/* <MainMenu/> */}
     </div>

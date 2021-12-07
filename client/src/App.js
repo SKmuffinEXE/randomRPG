@@ -9,11 +9,14 @@ import CharacterPage from './nontBattle/main/CharacterPage';
 import BattleMain from './battle/BattleMain';
 import ItemPage from './nontBattle/ItemPage';
 import StorePage from './ItemSTore/Storepage';
+import UserCard from './auth/userCard';
 
 function App() {
   const [user, setUser] = useState(null)
   const [characterList, setCharacterList] = useState([])
   const [activeChar, setActiveChar] = useState([])
+  const [characterChosen, setCharacterChosen] = useState(false)
+  const [displayUser, setDisplayUser] = useState(true)
   const [enemy, setEnemy] = useState([])
 
 
@@ -77,16 +80,17 @@ function App() {
     }
   })
 }
-  
 
   function refresh(){
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) => {console.log(user)
+        r.json().then((user) => {
+          console.log(user)
           setUser(user)
           setCharacterList(user.characters)
           console.log("username:")
           console.log(user.username)
+          
         });
         
       }
@@ -102,14 +106,14 @@ function App() {
         {/* <LandingPage setUser={setUser} setCharacterList = {setCharacterList}/> */}
 
       {/* </header> */}
-      Hello!
-      {user.username}
+      {displayUser ? <UserCard user = {user} characterChosen = {characterChosen} activeChar = {activeChar}/> : null}
+      
       <Switch>
       <Route exact path="/game/:id"> 
-        <MainRest activeChar = {activeChar} setEnemy = {setEnemy}/>
+        <MainRest setEnemy = {setEnemy} setDisplayUser = {setDisplayUser} setCharacterChosen = {setCharacterChosen}/>
       </Route>
       <Route exact path="/battle"> 
-        <BattleMain character = {activeChar} enemy = {enemy} setActiveChar = {setActiveChar} randomizer = {randomizer}/>
+        <BattleMain character = {activeChar} enemy = {enemy} setActiveChar = {setActiveChar} randomizer = {randomizer} setDisplayUser = {setDisplayUser}/>
       </Route>
       <Route exact path="/inventory"> 
         <ItemPage character = {activeChar} setActiveChar = {setActiveChar} refresh={getActiveChar}/>
@@ -124,7 +128,7 @@ function App() {
         <StorePage character = {activeChar} setActiveChar = {setActiveChar} refresh = {getActiveChar}/>
       </Route>
       <Route exact path="/">
-        <CharacterSelect characterList = {characterList}getActiveChar = {getActiveChar} setUser = {setUser}/>
+        <CharacterSelect characterList = {characterList}getActiveChar = {getActiveChar} setUser = {setUser} setCharacterChosen = {setCharacterChosen}/>
           </Route>
           
       <Route path="*">

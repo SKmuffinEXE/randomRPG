@@ -26,16 +26,18 @@ export default function StorePage({character, setActiveChar, refresh}){
 
     return(
         <div>
-            Store
-            <button onClick = {() => {history.push(`/game/${character.id}`)}}> back</button>
-
-            <h1>Current gold: {currentGold} </h1>
-            {message}
-            <div>
             
-            {displayItems}
+            
 
+            <center><h1>{message} </h1> </center>
+            <div ID = "storeGold"><h4> &nbsp; &nbsp; Current gold: {currentGold} </h4></div>
+            
+            <div>
+            <center>
+            {displayItems}
+</center>
             </div>
+            &nbsp;&nbsp;&nbsp; <button className = "custButton" onClick = {() => {history.push(`/game/${character.id}`)}}> Back</button>
         </div>
     )
     

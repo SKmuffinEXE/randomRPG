@@ -31,11 +31,14 @@ export default function ItemPage({character, setActiveChar, refresh}){
     return(
 
         <div>
-            <h1> Your Items</h1>
+           <center> <h1> Your Items</h1> </center>
+            
 
+ <div ID = "itemPage">
             {cards}
-
-            <button onClick = {() => {history.push(`/game/${character.id}`)}}> Back</button>
+            </div>
+            <br/> <br/>
+            &nbsp; &nbsp;&nbsp; <button className = "custButton" onClick = {() => {history.push(`/game/${character.id}`)}}> Back</button>
 
         </div>
     )

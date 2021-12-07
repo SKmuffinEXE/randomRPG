@@ -75,12 +75,12 @@ export default function StoreItemCard({item, character, currentGold, setCurrentG
     return(
         <div className = "itemCard">
     <h3>{item.name} </h3>
-    <h3> Price: 25 Gold </h3>
+    <h3 ID> Price: 25 Gold </h3>
     {itemDesc}
 <br/>
 
 <div><img className = "itemImage" src = {item.image} /></div>
-        <button onClick = {() => buyItem()}>Buy</button> 
+        <button className = "useButton" onClick = {() => buyItem()}>Buy</button> 
         </div>
     )
     
