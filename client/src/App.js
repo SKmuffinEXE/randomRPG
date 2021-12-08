@@ -85,11 +85,11 @@ function App() {
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-          console.log(user)
+          // console.log(user)
           setUser(user)
           setCharacterList(user.characters)
-          console.log("username:")
-          console.log(user.username)
+          // console.log("username:")
+          // console.log(user.username)
           
         });
         

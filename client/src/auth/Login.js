@@ -20,6 +20,7 @@ export default function Login({setUser, setCharacterList}){
             r.json().then((user) => {
             //   setCharacterList(user.player_characters)
               setUser(user)
+              setCharacterList(user.characters)
             });
           } else {
             r.json().then((err) => {setErrors(err.error)
