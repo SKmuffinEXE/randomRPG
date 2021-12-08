@@ -14,6 +14,10 @@ code {
     monospace;
 }
 
+#logoSize{
+  height: 200px;
+}
+
 #userCard{
   width: 200px;
   margin: 10px;
@@ -310,7 +314,13 @@ code {
   background: yellow;
   /* color: blue; */
 }
-
+#signUpPage{
+  justify-content: center;
+  /* display: flex; */
+  width: 200px;
+  height: 180px;
+  background: #8C0000;
+}
 #enemyHealthBar{
   background: yellow;
   width: 80px;

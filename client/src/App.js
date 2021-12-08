@@ -128,7 +128,7 @@ function App() {
         <StorePage character = {activeChar} setActiveChar = {setActiveChar} refresh = {getActiveChar}/>
       </Route>
       <Route exact path="/">
-        <CharacterSelect characterList = {characterList}getActiveChar = {getActiveChar} setUser = {setUser} setCharacterChosen = {setCharacterChosen}/>
+        <CharacterSelect characterList = {characterList}getActiveChar = {getActiveChar} setUser = {setUser} setCharacterChosen = {setCharacterChosen} setCharacterList = {setCharacterList}/>
           </Route>
           
       <Route path="*">

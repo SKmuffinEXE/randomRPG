@@ -32,16 +32,16 @@ export default function Login({setUser, setCharacterList}){
 
     return(
      <div>
-         Log in
-
+         <h1>Log in </h1>
+<div id = "signUpPage">
          <form>
             Username:
-            <input className="inputFields" type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
+            <input className="inputFields" type="text" value={username} onChange={(e) => setUsername(e.target.value)}/> <br/>
              Password: 
-            <input className="inputFields" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <input className="inputFields" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/><br/>
             <button id="loginButton" onClick={login}>Login!</button>
         </form>
-
+        </div>
      </div>   
     )
 }
