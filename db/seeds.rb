@@ -12,22 +12,28 @@ puts "seeding users"
 
 puts "seeding characters"
 
-Seth = Character.find_by(name: "Seth")
-Seth.update(exp: 0)
+# Seth = Character.find_by(name: "Seth")
+# Seth.update(exp: 0)
 # Character.create(name: "Tommy", health: 20, mhealth: 20, mana: 20, mmana: 20, str: 8, int: 8, dex: 8, speed: 8, con: 8, wis: 8, gold: 10, level: 1, points: 5, killcount: 0, user_id: 1)
 
 puts "creating enemies!"
 
-Enemy.create(name: "Goblin", maxhp: 15, maxmp: 0, str: 5, int: 2, dex: 2, speed: 9, con: 5, wis: 2, gold: 2, level: 1, xp: 10)
+# Enemy.create(name: "Goblin", maxhp: 15, maxmp: 0, str: 5, int: 2, dex: 2, speed: 9, con: 5, wis: 2, gold: 2, level: 1, xp: 10)
 
-Enemy.create(name: "Giant Rat", maxhp: 10, maxmp: 0, str: 5, int: 2, dex: 2, speed: 9, con: 5, wis: 2, gold: 1, level: 1, xp: 10)
+# Enemy.create(name: "Giant Rat", maxhp: 10, maxmp: 0, str: 5, int: 2, dex: 2, speed: 9, con: 5, wis: 2, gold: 1, level: 1, xp: 10)
 
-Enemy.create(name: "Orc", maxhp: 20, maxmp: 0, str: 7, int: 2, dex: 2, speed: 9, con:8, wis: 2, gold: 5, level: 1, xp: 10)
+# Enemy.create(name: "Orc", maxhp: 20, maxmp: 0, str: 7, int: 2, dex: 2, speed: 9, con:8, wis: 2, gold: 5, level: 1, xp: 10)
 
-Enemy.create(name: "White Wolf", maxhp: 12, maxmp: 0, str: 7, int: 2, dex: 2, speed: 9, con: 5, wis: 2, gold: 2, level: 1, xp: 10)
+# Enemy.create(name: "White Wolf", maxhp: 12, maxmp: 0, str: 7, int: 2, dex: 2, speed: 9, con: 5, wis: 2, gold: 2, level: 1, xp: 10)
 
 puts "creating items!"
 
 # Item.create(name: "Healing Potion", heal: 15, poisonheal: false, price: 20 )
 
 # Item.create(name: "Healing Herb", heal: 5, poisonheal: false, price: 14 )
+
+puts "items are: "
+
+
+puts Item.first.name
+puts Item.second.name
