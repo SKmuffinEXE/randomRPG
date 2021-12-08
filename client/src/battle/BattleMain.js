@@ -7,7 +7,7 @@ export default function BattleMain({character, enemy, setActiveChar, randomizer,
     const [enemyHP, setEnemyHP] = useState(enemy.maxhp)
     const [currentHP, setCurrentHP] = useState(character.health)
     const [battleState, setBattleState] = useState(true)
-    const [text, setText] = useState([`You are fighting ${enemy.name}`])
+    const [text, setText] = useState([`You are fighting a ${enemy.name}`])
     const [winState, setWinState] = useState('')
 
     // useEffect(() => {

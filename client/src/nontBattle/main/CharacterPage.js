@@ -29,7 +29,7 @@ export default function CharacterPage({character, getActiveChar}){
     function PointBuy(e, setStat, initstat, stat, increment){
         e.preventDefault()
     
-    if(increment === "plus" && stat < 15 && Points > 0)
+    if(increment === "plus" && Points > 0)
         {setStat(prev => ++prev)
         setPoints(prev => --prev)
         }
