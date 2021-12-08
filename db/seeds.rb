@@ -28,12 +28,12 @@ puts "creating enemies!"
 
 puts "creating items!"
 
-# Item.create(name: "Healing Potion", heal: 15, poisonheal: false, price: 20 )
+Item.create(name: "Healing Potion", heal: 15, poisonheal: false, price: 20 )
 
-# Item.create(name: "Healing Herb", heal: 5, poisonheal: false, price: 14 )
+Item.create(name: "Healing Herb", heal: 5, poisonheal: false, price: 14 )
 
 puts "items are: "
 
 
-puts Item.first.name
-puts Item.second.name
+# puts Item.first.name
+# puts Item.second.name
