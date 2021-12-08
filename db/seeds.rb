@@ -16,4 +16,16 @@ puts "seeding characters"
 
 puts "creating enemies!"
 
+# Enemy.create(name: "Goblin", maxhp: 15, maxmp: 0, str: 5, int: 2, dex: 2, speed: 9, con: 5, wis: 2, gold: 2, level: 1, xp: 10)
+
+# Enemy.create(name: "Giant Rat", maxhp: 10, maxmp: 0, str: 5, int: 2, dex: 2, speed: 9, con: 5, wis: 2, gold: 1, level: 1, xp: 10)
+
+# Enemy.create(name: "Orc", maxhp: 20, maxmp: 0, str: 7, int: 2, dex: 2, speed: 9, con:8, wis: 2, gold: 5, level: 1, xp: 10)
+
+# Enemy.create(name: "White Wolf", maxhp: 12, maxmp: 0, str: 7, int: 2, dex: 2, speed: 9, con: 5, wis: 2, gold: 2, level: 1, xp: 10)
+
 puts "creating items!"
+
+# Item.create(name: "Healing Potion", heal: 15, poisonheal: false, price: 20 )
+
+# Item.create(name: "Healing Herb", heal: 5, poisonheal: false, price: 14 )

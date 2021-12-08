@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import { useHistory } from "react-router"
-import CharacterSelect from "../../characterSelect/CharacterSelect";
 import coin from './coin.png'
 import str from './str.png'
 import con from './constitution.png'

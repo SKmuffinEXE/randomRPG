@@ -27,9 +27,9 @@ export default function StoreItemCard({item, character, currentGold, setCurrentG
     function buyItem(){
         
         
-        if(currentGold >= 25){
+        if(currentGold >= item.price){
             takeGold()
-            setCurrentGold(prev => prev - 25)
+            setCurrentGold(prev => prev - item.price)
             fetch(`/give_item`, {
             method: "PATCH",
             headers: {"Content-Type": "application/json",},
@@ -44,19 +44,19 @@ export default function StoreItemCard({item, character, currentGold, setCurrentG
             })
             
             console.log("clicked")
-            
+            setMessage("Thank you for your purchase!")
         }
         else{
             console.log("not enough gold!")
             setMessage("I'm afraid you're lacking the gold for that my friend!")
             // takeGold()
             }
-        
+        console.log(item.price)
     }
 
     function takeGold(){
 
-        let testGold = currentGold - 25
+        let testGold = currentGold - item.price
         fetch(`/characters/${character.id}}`, {
             method: "PATCH",
             headers: {"Content-Type": "application/json",},
@@ -75,7 +75,7 @@ export default function StoreItemCard({item, character, currentGold, setCurrentG
     return(
         <div className = "itemCard">
     <h3>{item.name} </h3>
-    <h3 ID> Price: 25 Gold </h3>
+    <h3 ID> Price: {item.price} </h3>
     {itemDesc}
 <br/>
 
