@@ -1,10 +1,11 @@
 import {NavLink} from 'react-router-dom';
 
-export default function CharacterCard({character, getActiveChar, setCharacterChosen}){
+export default function CharacterCard({character, getActiveChar, setCharacterChosen, randomizer}){
 
     function handleClick() {
         getActiveChar(character.id) 
         setCharacterChosen(prev => !prev)
+        randomizer()
     }
     
 

@@ -25,7 +25,7 @@ function App() {
     // test()
     randomizer()
     getActiveChar([])
-    
+    // getEnemy(1)
     
     //testing get ActiveChar, remove when finished
   }, []);
@@ -90,7 +90,6 @@ function App() {
           setCharacterList(user.characters)
           // console.log("username:")
           // console.log(user.username)
-          
         });
         
       }
@@ -128,7 +127,7 @@ function App() {
         <StorePage character = {activeChar} setActiveChar = {setActiveChar} refresh = {getActiveChar}/>
       </Route>
       <Route exact path="/">
-        <CharacterSelect characterList = {characterList}getActiveChar = {getActiveChar} setUser = {setUser} setCharacterChosen = {setCharacterChosen} setCharacterList = {setCharacterList}/>
+        <CharacterSelect characterList = {characterList}getActiveChar = {getActiveChar} setUser = {setUser} setCharacterChosen = {setCharacterChosen} setCharacterList = {setCharacterList} randomizer = {randomizer}/>
           </Route>
           
       <Route path="*">
