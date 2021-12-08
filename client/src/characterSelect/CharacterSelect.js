@@ -1,7 +1,13 @@
+import { useState } from 'react';
+import { useHistory } from "react-router"
 import CharacterCard from './CharactarCard';
+import CharacterCreator from './CharacterCreate';
 import { NavLink } from 'react-router-dom';
 
 export default function CharacterSelect({characterList, getActiveChar, setUser, setCharacterChosen}){
+
+    const history = useHistory();
+const [newCharBool, setNewCharBool] = useState(false)
 
     function logoutHandler() {
         console.log("clicked")
@@ -17,16 +23,19 @@ export default function CharacterSelect({characterList, getActiveChar, setUser, 
             <center> 
             <h1>Character select</h1> </center>
 <center> 
-            <div>
+            <div ID = "characterSelectPage">
                 {characterList.map(character => <CharacterCard character = {character} getActiveChar = {getActiveChar}setCharacterChosen = {setCharacterChosen}/>)}
                 
             </div>
             </center>  
 
-           <div> <button onClick = {() => logoutHandler()}> Logout </button></div>  
+           <div> <button className = "custButton" onClick = {() => logoutHandler()}> Logout </button>
+           
+           <button className = "custButton" onClick = {() => history.push(`/create`)}> New Character</button>
+           </div>  
 
            <div>  <h3>
-               <NavLink to={`/create`}> New Character</NavLink> 
+               {/* <NavLink to={`/create`}> New Character</NavLink>  */}
                </h3></div>
         </div>
     )

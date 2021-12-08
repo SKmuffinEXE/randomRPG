@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import { useHistory } from 'react-router';
+import sword from './sword.png'
 import MainMenu from './menu/MainMenu';
 import Attacks from './menu/Attacks';
 
@@ -86,11 +87,17 @@ export default function BattleOptions({character, attack, battleState, winState,
     }
   
 
-    if(!battleState) return <button onClick ={() => RestAgain()}>{winState}</button>;
+    if(!battleState) return <button className = "custButton" onClick ={() => RestAgain()}>{winState}</button>;
     return(
 
         <div> Menu <br/>
- <button onClick = {() => attack()}> Attack</button> 
+ <button className = "custButton" onClick = {() => attack()}> 
+ <img src = {sword} ID = "sword1" />
+ 
+ Attack
+ 
+ <img src = {sword} ID = "sword2" />
+ </button> 
  {/* <button>Items</button> */}
        {/* {currentMenu} */}
        {/* <MainMenu/> */}

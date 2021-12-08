@@ -7,6 +7,13 @@ export default function UserCard({activeChar, characterChosen, user}) {
       <div ID = "HPText">
       {characterChosen ?  `HP: ${activeChar.health} / ${activeChar.mhealth}` : null}
       </div>
+
+      {characterChosen ? <progress ID = "healthBar" value = {activeChar.health} max = {activeChar.mhealth}></progress> : null}
+
+      {characterChosen ? <p>EXP:</p> : null}      
+
+      {characterChosen ? <progress value = {activeChar.exp} max = {100}></progress> : null}
+      
         </div>
     )
     

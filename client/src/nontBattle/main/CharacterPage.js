@@ -1,9 +1,16 @@
 import {useState} from 'react'
 import { useHistory } from "react-router"
 import CharacterSelect from "../../characterSelect/CharacterSelect";
+import coin from './coin.png'
+import str from './str.png'
+import con from './constitution.png'
+import int from './int.png'
+import dex from './dex.png'
+import spr from './spirit.png'
+import spd from './spd.png'
 
 export default function CharacterPage({character, getActiveChar}){
-    const [leveling, setLeveling] = useState(false)
+
     const history = useHistory();
     const [strength, setStrength] = useState(character.str)
     const [initstr, setinitstr] = useState(character.str)
@@ -18,7 +25,7 @@ export default function CharacterPage({character, getActiveChar}){
     const [Speed, setSpeed] = useState(character.speed)
     const [initspd, setinitspd] = useState(character.speed)
     const [Points, setPoints] = useState(character.points)
-    const [errors, setErrors] = useState([]);
+
 
     function PointBuy(e, setStat, initstat, stat, increment){
         e.preventDefault()
@@ -70,82 +77,96 @@ export default function CharacterPage({character, getActiveChar}){
     }
     
 return(
-
+<div>
     <div ID = "characterPageBG">
         <div >
-        <h1>&nbsp; &nbsp; {character.name} </h1> 
-       <center> 
+        
+       
         <div ID = "characterPageInfo">
         <div>
-        <center>
-        <h3>Level: {character.level} </h3> </center>
-        <h3> Experience: {character.exp} / 100 </h3>
+        
+        <h1>{character.name} </h1> 
+        <h3>Level: {character.level} </h3> 
+       
         <h3 id = "HPText">Health: {character.health} / {character.mhealth} </h3>
+        <progress id = "healthBar" value = {character.health} max = {character.mhealth}> </progress>
         <h3>Enemies killed: {character.killcount} </h3>
-        <h3> Gold: {character.gold} </h3>
+        <h3> Gold:<img ID = "coinSize" src = {coin}/> {character.gold}   </h3>
+        <h3> Experience: {character.exp} / 100 </h3>
         </div>
         <div>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div>
     <div ID = "stats">
         <h3>Stats </h3>
         <h4>
-
+        <img ID = "coinSize" src = {str}/>
         Strength:  
-        <button className="statButtons" onClick ={(e) => PointBuy(e, setStrength, initstr , strength,  "plus")}> ↑ </button> 
+        <div ID = "stats"> 
+        <button className="upButton" onClick ={(e) => PointBuy(e, setStrength, initstr , strength,  "plus")}> ↑ </button> 
             {strength} 
-            <button className="statButtons" onClick ={(e) => PointBuy(e, setStrength, initstr, strength, "minus")}> ↓</button>
+            <button className="downButton" onClick ={(e) => PointBuy(e, setStrength, initstr, strength, "minus")}> ↓</button>
+            </div>
             </h4>
-        <h4>Constitution: 
-        <button className="statButtons" onClick ={(e) => PointBuy(e, setConstitution, initcon , Constitution,  "plus")}> ↑ </button> 
+            
+
+        <h4> <img ID = "coinSize" src = {con}/>Constitution: 
+        <div ID = "stats"> 
+        <button className="upButton" onClick ={(e) => PointBuy(e, setConstitution, initcon , Constitution,  "plus")}> ↑ </button> 
             
             {Constitution} 
             
-            <button className="statButtons" onClick ={(e) => PointBuy(e, setConstitution, initcon, Constitution, "minus")}> ↓</button>
+            <button className="downButton" onClick ={(e) => PointBuy(e, setConstitution, initcon, Constitution, "minus")}> ↓</button>
+            </div>
             </h4>
-        <h4>Dexterity: 
-        <button className="statButtons" onClick ={(e) => PointBuy(e, setDexterity, initdex , Dexterity,  "plus")}> ↑ </button>
+        <h4>  <img ID = "coinSize" src = {dex}/>Dexterity: 
+
+        <div ID = "stats"> 
+        <button className="upButton" onClick ={(e) => PointBuy(e, setDexterity, initdex , Dexterity,  "plus")}> ↑ </button>
 
             {Dexterity} 
             
-            <button className="statButtons" onClick ={(e) => PointBuy(e, setDexterity, initdex, Dexterity, "minus")}> ↓</button>
-            
+            <button className="downButton" onClick ={(e) => PointBuy(e, setDexterity, initdex, Dexterity, "minus")}> ↓</button>
+            </div>
             </h4>
-        <h4>Inteligence: 
-        <button className="statButtons" onClick ={(e) => PointBuy(e, setInteligence, initint , Inteligence,  "plus")}> ↑ </button>
+        <h4> <img ID = "coinSize" src = {int}/>Inteligence: 
+        <div ID = "stats"> 
+        <button className="upButton" onClick ={(e) => PointBuy(e, setInteligence, initint , Inteligence,  "plus")}> ↑ </button>
             
             {character.int} 
 
-            <button className="statButtons" onClick ={(e) => PointBuy(e, setInteligence, initint, Inteligence, "minus")}> ↓</button>
-            
+            <button className="downButton" onClick ={(e) => PointBuy(e, setInteligence, initint, Inteligence, "minus")}> ↓</button>
+            </div>
             </h4>
-        <h4>Spirit: 
-            
-        <button className="statButtons" onClick ={(e) => PointBuy(e, setWisdom, initwis, Wisdom, "plus")}> ↑ </button>
+        <h4><img ID = "coinSize" src = {spr}/> Spirit: 
+        <div ID = "stats"> 
+        <button className="upButton" onClick ={(e) => PointBuy(e, setWisdom, initwis, Wisdom, "plus")}> ↑ </button>
             
             {Wisdom} 
             
-            <button className="statButtons" onClick ={(e) => PointBuy(e, setWisdom, initwis, Wisdom, "minus")}> ↓</button>
+            <button className="downButton" onClick ={(e) => PointBuy(e, setWisdom, initwis, Wisdom, "minus")}> ↓</button>
+            </div>
             </h4>
-        <h4>Speed:
-
-             <button className="statButtons" onClick ={(e) => PointBuy(e, setSpeed, initspd, Speed, "plus")}> ↑ </button> 
+        <h4> <img ID = "coinSize" src = {spd}/>Speed:
+        <div ID = "stats"> 
+             <button className="upButton" onClick ={(e) => PointBuy(e, setSpeed, initspd, Speed, "plus")}> ↑ </button> 
             
             {Speed} 
             
-            <button className="statButtons" onClick ={(e) => PointBuy(e, setSpeed, initspd, Speed, "minus")}> ↓</button>
+            <button className = "downButton" onClick ={(e) => PointBuy(e, setSpeed, initspd, Speed, "minus")}> ↓</button>
+            </div>
             </h4>
 
         <h4> Points left: {Points} </h4>
+    <center> 
+        <button ID = "buyStats" onClick = {() => levelUp()}> Buy Stats </button>
+        </center>
         </div>
         
         </div>
-        </center>
+
     </div>
-    <center> 
-    <div ID>
-    <button className = "custButton" onClick = {() => restArea()}> Back </button>
-        <button className = "custButton" onClick = {() => levelUp()}> Buy Stats </button>
-        </div>
-        </center>
+        
+    </div>
+    &nbsp;&nbsp;&nbsp;<button className = "custButton" onClick = {() => restArea()}> Back </button>
     </div>
 )
 

@@ -83,23 +83,38 @@ export default function BattleMain({character, enemy, setActiveChar, randomizer,
     return(
 
         <div>
-            <center><div>
-                {enemy.name} <br/>
-                HP: {enemyHP} / {enemy.maxhp}
-                </div> </center> <br/> <br/> <br/>
-
-            <div> 
-                {/* battle text */}
-                
-                <BattleDesc character = {character} enemy = {enemy} text ={text}/>
+            <div ID = "BattleEnemyCard">
+                {enemy.name} <br/> 
+                <progress id = "enemyHealthBar" value = {enemyHP} max = {enemy.maxhp}> </progress>
+               {/* <div ID = "HPText"> HP: {enemyHP} / {enemy.maxhp} </div> */}
                 </div> <br/> <br/> <br/>
 
-            <div> {character.name}
-                <div>HP : {currentHP} / {character.mhealth}</div>
-                <div> MP:  {character.mana} / {character.mmana}</div>
+            <div ID = "BattleText"> 
+            <div ID = "InnerBattleText">
+                
+                
+                <BattleDesc character = {character} enemy = {enemy} text ={text}/> 
+                </div>
+                </div> <br/> <br/> <br/>
+
+            <div ID = "BattlePCCard"> 
+            
+            <div ID = "bold"> <h1>{character.name} </h1></div>
+                <div ID = "HPText">HP : {currentHP} / {character.mhealth}</div>
+                <progress id = "healthBar" value = {currentHP} max = {character.mhealth}> </progress>
+
+                
+                <div ID = "MPText"> MP:  {character.mana} / {character.mmana}</div>
+
+                {/* <progress id = "manaBar" value = {character.mana} max = {character.mmana}> </progress> */}
             </div>
             <br/> 
+            
+            <div ID = "BattleOptions">
+                <center>
             <BattleOptions character = {character} attack = {attack} battleState = {battleState} winState = {winState} setActiveChar = {setActiveChar} currentHP = {currentHP} enemy = {enemy} setText ={setText} randomizer ={randomizer} setDisplayUser ={setDisplayUser}/>
+            </center>
+            </div>
         </div>
     )
 

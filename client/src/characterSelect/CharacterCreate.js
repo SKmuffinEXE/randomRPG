@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useHistory } from "react-router"
 
 export default function CharacterCreator({ userID, setCharacterList}){
-  const [newName, setNewName] = useState("test");
+  const [newName, setNewName] = useState("");
 
   const history = useHistory();
 
@@ -41,17 +41,22 @@ export default function CharacterCreator({ userID, setCharacterList}){
 
   }
 
-    return( <div>
+    return( <div><center> 
       <h1>  Create a character! </h1>
-      <button onClick = {() => {history.push("/")}}>Back </button>
+     
       <div>
           <form onSubmit = {newChar}>
         <label>Name: </label> 
-        <input value = {newName} onChange = {(e) => setNewName(e.target.value)}></input>
-        <button>Submit</button>
+        <input value = {newName} onChange = {(e) => setNewName(e.target.value)}></input> <br/>
+        <label>Race: </label> <input/> <br/> <br/>
+        <button className = "custButton">Submit</button>
 
           </form>
       </div>
+      </center>
+      <br/> <br/>
+
+      <button className = "custButton" onClick = {() => {history.push("/")}}>Back </button>
     </div>
     )
 }

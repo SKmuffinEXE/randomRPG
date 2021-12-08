@@ -30,6 +30,14 @@ code {
   color: red;
 }
 
+#MPText{
+  color: blue;
+}
+
+#bold{
+  font-weight: bold;
+}
+
 .CharacterCard{
   width: 200px;
   margin: 10px;
@@ -40,6 +48,15 @@ code {
   color: black;
   background: #d7d7d7;
   font-size:14px;
+}
+
+#characterSelectPage {
+  justify-content: center;
+  display: flex;
+  /* background: #d7d7d7; */
+  width: 800px;
+  margin: auto;
+
 }
 
 .itemCard{
@@ -78,9 +95,13 @@ code {
 
 }
 
-/* #stats{
-  justify-content: center;
-} */
+#stats{
+  display: inline-block;
+  /* margin: 0px 40px 0px; */
+  position:relative;
+  left: 60px;
+  padding: 0px 45px 0px;
+}
 #rest{
   background: #d7d7d7;
   /* display: flex; */
@@ -91,6 +112,20 @@ code {
   font-weight: bold;
   /* padding: 50px; */
   margin: auto;
+}
+
+#coinSize{
+  height: 20px;
+}
+
+#sword1{
+  height: 20px;
+  transform: rotate(0deg)
+}
+
+#sword2{
+  height: 20px;
+  transform: rotate(270deg)
 }
 
 #itemPage{
@@ -121,6 +156,18 @@ code {
   font-weight: bold;
   font-size: 30px;
   margin: 0px 5px 0px;
+  /* text-decoration: none; */
+  border-radius: 18px;
+  transition-duration: 0.4s;
+}
+
+#buyStats{
+  background-color: #98c1d9;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  font-size:10px;
+  margin: 0px 5px 10px;
   /* text-decoration: none; */
   border-radius: 18px;
   transition-duration: 0.4s;
@@ -166,16 +213,105 @@ code {
 
 .upButton{
   background-color: #98c1d9;
+  color: purple;
+  cursor: pointer;
   font-weight: bold;
+  margin: 0px 10px 0px;
+  font-size: 18px;
+  border-radius: 10px;
+  transition-duration: 0.4s;
 }
 
 .downButton{
   background-color: #98c1d9;
+  margin: 0px 10px 0px;
+  color: purple;
+  cursor: pointer;
   font-weight: bold;
+  font-size: 18px;
+  border-radius: 10px;
+  transition-duration: 0.4s;
+
 }
 
+.downButton:hover{
+  background-color: red; /* Green */
+  color: white;
+}
 
+.upButton:hover{
+  background-color: blue; /* Green */
+  color: white;
+}
 .custButton:hover{
   background-color: #4CAF50; /* Green */
   color: white;
+}
+
+/* battle CSS */
+
+#BattlePCCard{
+  width: 150px;
+  margin: auto;
+  padding: 9px;
+  box-shadow:  0 0 20px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.12);
+  border-radius: 35px;
+  /* text-align: center;  */
+  color: black;
+  background: #d7d7d7;
+  font-size:14px;
+}
+
+#BattleEnemyCard{
+  height:30px;
+  width: 90px;
+  margin: auto;
+  padding: 25px;
+  box-shadow:  0 0 20px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.12);
+  border-radius: 25px;
+  /* text-align: center;  */
+  color: black;
+  background: #d7d7d7;
+  font-size:14px;
+}
+
+#BattleText{
+  margin: auto;
+  padding: 5px;
+  width: 300px;
+  height: 200px;
+  color: black;
+  background: #d7d7d7;
+}
+
+#InnerBattleText{
+  margin: 9px;
+}
+
+#BattleOptions{
+  margin: auto;
+}
+/* firefox */
+/* progress::-moz-progress-bar { background: red; } */
+/* chrome */
+/* progress::-webkit-progress-value { background: green; } */
+/* progress { color: red; } */
+
+/* #manaBar progress::-webkit-progress-value { background: green; } */
+
+#healthBar{
+  /* -webkit-appearance: none; */
+  /* appearance: none; */
+  background: yellow;
+  /* color: blue; */
+}
+
+#manaBar{
+  background: yellow;
+  /* color: blue; */
+}
+
+#enemyHealthBar{
+  background: yellow;
+  width: 80px;
 }

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router';
+import coin from './coin.png'
 import StoreItemCard from './StoreItemCard';
 
 export default function StorePage({character, setActiveChar, refresh}){
@@ -30,12 +31,12 @@ export default function StorePage({character, setActiveChar, refresh}){
             
 
             <center><h1>{message} </h1> </center>
-            <div ID = "storeGold"><h4> &nbsp; &nbsp; Current gold: {currentGold} </h4></div>
+            <div ID = "storeGold"><h4> &nbsp; &nbsp; <img ID = "coinSize" src = {coin}/> {currentGold} </h4></div>
             
-            <div>
-            <center>
+            <div ID = "characterSelectPage">
+            
             {displayItems}
-</center>
+
             </div>
             &nbsp;&nbsp;&nbsp; <button className = "custButton" onClick = {() => {history.push(`/game/${character.id}`)}}> Back</button>
         </div>
