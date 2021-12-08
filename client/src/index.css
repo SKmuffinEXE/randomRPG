@@ -286,7 +286,7 @@ code {
   height: 200px;
   color: black;
   background: #d7d7d7;
-  overflow: scroll;
+  overflow: auto;
 }
 
 #InnerBattleText{
