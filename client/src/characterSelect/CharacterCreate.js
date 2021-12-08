@@ -28,7 +28,8 @@ export default function CharacterCreator({ userID, setCharacterList}){
         level: 1,
         points: 5,
         killcount: 0,
-        user_id: userID
+        user_id: userID,
+        exp: 0
       }),
   })
   .then((r)=> r.json())
