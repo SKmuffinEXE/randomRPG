@@ -1,7 +1,9 @@
+import userIcon from "./dragonIcon.png"
+
 export default function UserCard({activeChar, characterChosen, user}) {
 
     return(
-        <div ID = "userCard">
+        <div ID = "userCard"><div>
             <h3>Current User: {user.username} </h3>
       {characterChosen ? <p>Current Character: {activeChar.name}</p> : null} 
       <div ID = "HPText">
@@ -13,7 +15,10 @@ export default function UserCard({activeChar, characterChosen, user}) {
       {characterChosen ? <p>EXP:</p> : null}      
 
       {characterChosen ? <progress value = {activeChar.exp} max = {100}></progress> : null}
-      
+      </div>
+      <div>
+          {characterChosen ? <img id = "UserCardIcon" src ={userIcon}/> : null}
+      </div>
         </div>
     )
     

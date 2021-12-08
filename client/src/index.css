@@ -20,6 +20,7 @@ code {
 }
 
 #userCard{
+  height: 210px;
   width: 200px;
   margin: 10px;
   padding: 0px 25px 5px;
@@ -29,6 +30,12 @@ code {
   color: black;
   background: #d7d7d7;
   font-size:14px;
+  display: flex;
+}
+
+#UserCardIcon{
+  height:220px;
+  width: 130px;
 }
 
 #HPText{
@@ -72,7 +79,9 @@ code {
   border-radius: 35px;
   /* text-align: center;  */
   color: black;
-  background: #d7d7d7;
+  background-image: url(https://previews.123rf.com/images/nirut123rf/nirut123rf1702/nirut123rf170201540/71566432-top-wooden-shelves-and-concrete-wall-background-for-product-display-.jpg);
+  background-size: 120px 320px;
+  /* background: #d7d7d7; */
   font-size:14px;
 }
 
@@ -85,16 +94,18 @@ code {
 #characterPageBG{
   
   color: black;
-  background: #d7d7d7;
+  /* background: #d7d7d7; */
+  height: 450px;
   width: 800px;
-
+  background-image: url(https://i.pinimg.com/originals/a2/04/0e/a2040ebda73d0a603c42bf12e80b4f16.jpg);
+  background-size: 800px 450px;
   margin: auto;
 }
 
 #characterPageInfo {
   justify-content: center;
   display: flex;
-  background: #d7d7d7;
+  /* background: #d7d7d7; */
   width: 800px;
   /* margin: 0px 400px 0px; */
 
@@ -108,14 +119,16 @@ code {
   padding: 0px 45px 0px;
 }
 #rest{
-  background: #d7d7d7;
+  /* background: #d7d7d7; */
   /* display: flex; */
   justify-content: left;
   width: 600px;
   height: 300px;
   color: black;
+  background-image: url("parchment.png");
+  background-size: 660px 340px;
   font-weight: bold;
-  padding: 5px 10px 0px;
+  padding: 35px 28px 0px;
   margin: auto;
 }
 
@@ -144,6 +157,8 @@ code {
   color: black;
   font-weight: bold;
   /* padding: 50px; */
+  background-image: url(https://cdn.wallpapersafari.com/38/17/kVcLpI.jpg); 
+  background-size: 200px 320px;
   margin: auto;
   overflow-y: auto;
 }
@@ -271,7 +286,7 @@ code {
   height:30px;
   width: 90px;
   margin: auto;
-  padding: 25px;
+  padding: 15px 25px 15px;
   box-shadow:  0 0 20px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.12);
   border-radius: 25px;
   /* text-align: center;  */
@@ -283,10 +298,13 @@ code {
 #BattleText{
   margin: auto;
   padding: 5px;
-  width: 300px;
-  height: 200px;
+  width: 430px;
+  height: 300px;
   color: black;
-  background: #d7d7d7;
+  background-image: url(https://besthqwallpapers.com/Uploads/12-5-2021/167637/thumb2-yellow-paper-texture-macro-grunge-textures-retro-backgrounds-brown-paper-background-paper-backgrounds.jpg);
+  background-size: cover;
+  /* background-color: red; */
+  /* background: #d7d7d7; */
   overflow: auto;
 }
 
