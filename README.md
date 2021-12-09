@@ -52,3 +52,11 @@ bcrypt - Handles the user login/signup authentications.
 -More items!
 
 -Fights generated depending on player character's level
+
+**Contact**
+
+For contact regarding questions about this game, bugs and the what not feel free to contact!
+
+Twitter: https://twitter.com/SKmuffinEXE
+
+E-mail: DEvangelista54@gmail.com
