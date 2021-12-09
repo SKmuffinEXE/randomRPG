@@ -5,10 +5,15 @@ This is an app to see how much of a functioning game I could make in the alotted
 **Technologies**
 
 React
+
 ruby/ruby on rails - the code that generates the back end information.
-postgress - the actual back end database
+
+postgress - the actual back end 
+
 html/css/JSX -  Front end coding, that's already part of react.
+
 Heroku  - Where the game is hosted.  You can visit the game at: https://fi-p5-random-rpg.herokuapp.com/game/6
+
 bcrypt - Handles the user login/signup authentications.
 
 
@@ -16,19 +21,31 @@ bcrypt - Handles the user login/signup authentications.
 **Features**
 
 -Can create a new character.
+
 -Can level up stats of said character, making him more powerful!
+
 -Can fight up to currently, 4 monsters including: Goblin, Giant Rat, Wolf and the scary Orc!
+
 -Can buy items from a shop
+
 -Can use potions to heal up damage you've accrued from battle.
+
 
 **Future implementations**
 
 -Changing the battle formula
 -More attacking options
+
 -Magical magic!
+
 -Changing enemy and player character's health
+
 -Way to upgrade player character's health
+
 -Multiple Enemy fights
+
 -Party Members
+
 -More items!
+
 -Fights generated depending on player character's level
