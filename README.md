@@ -1,3 +1,5 @@
+**Simple Rpg**
+
 Simple RPG, originally called random RPG but the name didn't run off the tongue as much.  
 
 This is an app to see how much of a functioning game I could make in the alotted time I had to create this project.  I wanted to make a simple and easy to understand turn based RPG, where the player fights randomly selected monsters, levels up and gets gold to buy stuff from the store.
