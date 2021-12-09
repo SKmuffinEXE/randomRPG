@@ -1,4 +1,4 @@
-**Simple Rpg**
+**Simple RPG**
 
 Simple RPG, originally called random RPG but the name didn't run off the tongue as much.  
 
