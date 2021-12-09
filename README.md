@@ -34,6 +34,7 @@ bcrypt - Handles the user login/signup authentications.
 **Future implementations**
 
 -Changing the battle formula
+
 -More attacking options
 
 -Magical magic!
