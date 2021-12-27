@@ -14,7 +14,7 @@ postgress - the actual back end
 
 html/css/JSX -  Front end coding, that's already part of react.
 
-Heroku  - Where the game is hosted.  You can visit the game at: https://fi-p5-random-rpg.herokuapp.com/game/6
+Heroku  - Where the game is hosted.  You can visit the game at: https://fi-p5-random-rpg.herokuapp.com
 
 bcrypt - Handles the user login/signup authentications.
 
